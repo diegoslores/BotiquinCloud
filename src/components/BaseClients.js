@@ -1,7 +1,7 @@
 import React from "react";
 import { navigate } from "@reach/router";
 
-class baseClients extends React.Component {
+class BaseClients extends React.Component {
   goToClients = event => {
     // 1. stop the <form> from submitting
     event.preventDefault();
@@ -19,4 +19,4 @@ class baseClients extends React.Component {
   }
 }
 
-export default baseClients;
+export default BaseClients;
