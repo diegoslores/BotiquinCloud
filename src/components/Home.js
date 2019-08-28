@@ -6,7 +6,7 @@ class Home extends React.Component {
     return (
       <>
         <Header />
-        <main clasName="main">
+        <main className="main">
           <p>Esto es el home</p>
         </main>
       </>

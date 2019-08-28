@@ -1,18 +1,20 @@
 import React from "react";
 
 import Header from "./Header";
+import AddClientForm from "./AddClientForm";
 
-class Clients extends React.Component {
+class ClientSection extends React.Component {
   render() {
     return (
       <>
         <Header />
-        <main clasName="main">
+        <main className="main">
           <p>Aqui se gestionan los clientes</p>
+          <AddClientForm />
         </main>
       </>
     );
   }
 }
 
-export default Clients;
+export default ClientSection;
