@@ -2,7 +2,7 @@ import React from "react";
 // npm install @reach/router
 import { Router } from "@reach/router";
 
-import ClientSection from "./ClientSection";
+import MedicineSection from "./MedicineSection";
 import Home from "./Home";
 import NotFound from "./NotFound";
 import "../css/App.css";
@@ -12,7 +12,7 @@ class App extends React.Component {
     return (
       <Router>
         <Home path="/" />
-        <ClientSection path="/clientes" />
+        <MedicineSection path="/medicinas" />
         <NotFound default />
       </Router>
     );

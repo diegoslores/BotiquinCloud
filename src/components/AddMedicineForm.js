@@ -1,7 +1,7 @@
 import React from "react";
 import PropTypes from "prop-types";
 
-class AddClientForm extends React.Component {
+class AddMedicineForm extends React.Component {
   static propTypes = {
     addclient: PropTypes.func.isRequired
   };
@@ -17,7 +17,7 @@ class AddClientForm extends React.Component {
     //stop the form from submitting
     event.preventDefault();
     //create client with form data
-    const client = {
+    const medicine = {
       name: this.nameRef.current.value,
       surname: this.surnameRef.current.value,
       age: this.ageRef.current.value,
@@ -25,15 +25,15 @@ class AddClientForm extends React.Component {
       points: this.pointsRef.current.value,
       citas: this.citasRef.current.value
     };
-    //send client to app component(where state lives)
-    this.props.addClient(client);
+    //send Medicine to app component(where state lives)
+    this.props.addMedicine(medicine);
     //refresh form
     event.currentTarget.reset();
   };
 
   render() {
     return (
-      <form className="client-edit" onSubmit={this.createClient}>
+      <form className="medicine-edit" onSubmit={this.createMedicine}>
         <input
           type="text"
           ref={this.nameRef}
@@ -65,10 +65,10 @@ class AddClientForm extends React.Component {
           name="citas"
           placeholder="Citas"
         />
-        <button title="submit"> Añadir Cliente</button>
+        <button title="submit"> Añadir Medicina</button>
       </form>
     );
   }
 }
 
-export default AddClientForm;
+export default AddMedicineForm;
