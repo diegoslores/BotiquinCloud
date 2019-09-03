@@ -47,6 +47,9 @@ class App extends React.Component {
           path="/mibotica"
           medicines={this.state.medicines}
           addMedicine={this.addMedicine}
+          loadSampleMedicine={this.loadSampleMedicine}
+          updateMedicine={this.updatedMedicine}
+          deleteMedicine={this.deleteMedicine}
         />
         <NotFound default />
       </Router>
