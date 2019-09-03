@@ -3,15 +3,13 @@ import PropTypes from "prop-types";
 
 class AddMedicineForm extends React.Component {
   static propTypes = {
-    addclient: PropTypes.func.isRequired
+    addMedicine: PropTypes.func.isRequired
   };
 
   nameRef = React.createRef();
-  surnameRef = React.createRef();
-  ageRef = React.createRef();
-  phoneRef = React.createRef();
-  pointsRef = React.createRef();
-  citasRef = React.createRef();
+  priceRef = React.createRef();
+  descRef = React.createRef();
+  imageRef = React.createRef();
 
   createClient = event => {
     //stop the form from submitting
@@ -19,11 +17,9 @@ class AddMedicineForm extends React.Component {
     //create client with form data
     const medicine = {
       name: this.nameRef.current.value,
-      surname: this.surnameRef.current.value,
-      age: this.ageRef.current.value,
-      phone: this.phoneRef.current.value,
-      points: this.pointsRef.current.value,
-      citas: this.citasRef.current.value
+      price: this.priceRef.current.value,
+      desc: this.descRef.current.value,
+      image: this.imageRef.current.value
     };
     //send Medicine to app component(where state lives)
     this.props.addMedicine(medicine);
@@ -40,31 +36,26 @@ class AddMedicineForm extends React.Component {
           name="name"
           placeholder="Nombre"
         />
+
         <input
           type="text"
-          ref={this.surnameRef}
-          name="surname"
-          placeholder="Apellidos"
-        />
-        <input type="text" ref={this.ageRef} name="age" placeholder="Edad" />
-        <input
-          type="text"
-          ref={this.phoneRef}
-          name="phone"
-          placeholder="Telefono"
+          ref={this.priceRef}
+          name="price"
+          placeholder="Precio"
         />
         <input
           type="text"
-          ref={this.pointsRef}
-          name="points"
-          placeholder="Puntos"
+          ref={this.descRef}
+          name="desc"
+          placeholder="Descripcion"
         />
         <input
           type="text"
-          ref={this.citasRef}
-          name="citas"
-          placeholder="Citas"
+          ref={this.imageRef}
+          name="image"
+          placeholder="Imagen"
         />
+
         <button title="submit"> Añadir Medicina</button>
       </form>
     );

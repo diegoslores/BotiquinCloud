@@ -5,38 +5,24 @@ class Medicine extends React.Component {
   static propTypes = {
     medicineDetails: PropTypes.shape({
       name: PropTypes.string.isRequired,
-      surname: PropTypes.string.isRequired,
-      age: PropTypes.string.isRequired,
-      phone: PropTypes.string.isRequired,
-      points: PropTypes.string.isRequired,
-      status: PropTypes.string.isRequired,
-      citas: PropTypes.string.isRequired
+      image: PropTypes.string.isRequired,
+      desc: PropTypes.string.isRequired,
+      price: PropTypes.string.isRequired
     }).isRequired
   };
 
   render() {
-    const {
-      name,
-      surname,
-      age,
-      phone,
-      points,
-      citas,
-      status
-    } = this.props.medicineDetails;
-
-    const isNotAvailable = status === "unavailable";
+    const { name, desc, image, price } = this.props.medicineDetails;
 
     return (
       <li className="menu-medicine">
         <h4 className="medicine-name">
           {name}
-          <span className="points">{points}</span>
+          <span className="points">{price}</span>
         </h4>
-        <p>{surname}</p>
-        <p>{age}</p>
-        <p>{phone}</p>
-        <p>{citas}</p>
+
+        <p>{desc}</p>
+        <p>{image}</p>
       </li>
     );
   }

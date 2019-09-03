@@ -1,19 +1,37 @@
 import React from "react";
+import PropTypes from "prop-types";
 
 import Header from "./Header";
 import AddMedicineForm from "./AddMedicineForm";
 import Medicine from "./Medicine";
 
 class MedicineSection extends React.Component {
+  static propTypes = {
+    medicines: PropTypes.object.isRequired,
+    loadSampleMedicines: PropTypes.func.isRequired
+  };
+  state = {
+    fishes: {}
+  };
+
   render() {
     return (
       <>
         <Header />
         <main className="main">
-          <p>Aqui se gestionan los clientes</p>
+          <p>Aqui se gestiona la botica</p>
           <AddMedicineForm />
-          <ul>
-            <Medicine />
+          <button onClick={this.props.loadSampleMedicines}>
+            Load pills Samples
+          </button>
+          <ul className="medicines">
+            {Object.keys(this.props.medicines).map(pillKey => (
+              <Medicine
+                key={pillKey}
+                index={pillKey}
+                fishDetails={this.props.medicines[pillKey]}
+              />
+            ))}
           </ul>
         </main>
       </>
