@@ -1,13 +1,19 @@
 import React from "react";
 // npm install @reach/router
 import { Router } from "@reach/router";
+import PropTypes from "prop-types";
 
 import MedicineSection from "./MedicineSection";
 import Home from "./Home";
 import NotFound from "./NotFound";
 import "../css/App.css";
+import sampleMedicine from "../sample-medicine";
 
 class App extends React.Component {
+  static propTypes = {
+    storeId: PropTypes.string
+  };
+
   state = {
     medicines: {}
   };
@@ -39,12 +45,16 @@ class App extends React.Component {
     this.setState({ medicines: deleteMedicine });
   };
 
+  loadSampleMedicine = () => {
+    this.setState({ medicines: sampleMedicine });
+  };
+
   render() {
     return (
       <Router>
         <Home path="/" />
         <MedicineSection
-          path="/mibotica"
+          path="/:storeId"
           medicines={this.state.medicines}
           addMedicine={this.addMedicine}
           loadSampleMedicine={this.loadSampleMedicine}

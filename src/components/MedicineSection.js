@@ -1,7 +1,6 @@
 import React from "react";
 import PropTypes from "prop-types";
 
-import Header from "./Header";
 import AddMedicineForm from "./AddMedicineForm";
 import Medicine from "./Medicine";
 
@@ -16,25 +15,22 @@ class MedicineSection extends React.Component {
 
   render() {
     return (
-      <>
-        <Header />
-        <main className="main">
-          <p>Aqui se gestiona la botica</p>
-          <AddMedicineForm />
-          <button onClick={this.props.loadSampleMedicines}>
-            Load pills Samples
-          </button>
-          <ul className="medicines">
-            {Object.keys(this.props.medicines).map(pillKey => (
-              <Medicine
-                key={pillKey}
-                index={pillKey}
-                fishDetails={this.props.medicines[pillKey]}
-              />
-            ))}
-          </ul>
-        </main>
-      </>
+      <main className="main">
+        <p>Aqui se gestiona la botica</p>
+        <AddMedicineForm />
+        <button onClick={this.props.loadSampleMedicines}>
+          Load pills Samples
+        </button>
+        <ul className="medicines">
+          {Object.keys(this.props.medicines).map(pillKey => (
+            <Medicine
+              key={pillKey}
+              index={pillKey}
+              fishDetails={this.props.medicines[pillKey]}
+            />
+          ))}
+        </ul>
+      </main>
     );
   }
 }
