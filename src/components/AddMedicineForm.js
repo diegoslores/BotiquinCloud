@@ -1,17 +1,12 @@
 import React from "react";
-import PropTypes from "prop-types";
 
 class AddMedicineForm extends React.Component {
-  static propTypes = {
-    addMedicine: PropTypes.func.isRequired
-  };
-
   nameRef = React.createRef();
   priceRef = React.createRef();
   descRef = React.createRef();
   imageRef = React.createRef();
 
-  createClient = event => {
+  createMedicine = event => {
     //stop the form from submitting
     event.preventDefault();
     //create client with form data

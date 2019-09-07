@@ -1,18 +1,6 @@
 import React from "react";
-import PropTypes from "prop-types";
 
 class EditMedicineForm extends React.Component {
-  static propTypes = {
-    medicine: PropTypes.shape({
-      name: PropTypes.string.isRequired,
-      image: PropTypes.string.isRequired,
-      desc: PropTypes.string.isRequired,
-      price: PropTypes.string.isRequired
-    }).isRequired,
-    medicineKey: PropTypes.string.isRequired,
-    deleteMedicine: PropTypes.func.isRequired
-  };
-
   handleChange = event => {
     const updatedMedicine = {
       ...this.props.medicine,

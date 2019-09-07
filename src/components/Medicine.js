@@ -1,16 +1,6 @@
 import React from "react";
-import PropTypes from "prop-types";
 
 class Medicine extends React.Component {
-  static propTypes = {
-    medicineDetails: PropTypes.shape({
-      name: PropTypes.string.isRequired,
-      image: PropTypes.string.isRequired,
-      desc: PropTypes.string.isRequired,
-      price: PropTypes.string.isRequired
-    }).isRequired
-  };
-
   render() {
     const { name, desc, image, price } = this.props.medicineDetails;
 

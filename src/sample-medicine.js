@@ -1,6 +1,6 @@
 // This is just some sample data so you don't have to think of your own!
 const pills = {
-  pill1: {
+  medicine1: {
     name: "Pacific Halibut",
     image: "/images/hali.jpg",
     desc:
@@ -8,7 +8,7 @@ const pills = {
     price: 1724
   },
 
-  pill2: {
+  medicine2: {
     name: "Lobster",
     image: "/images/lobster.jpg",
     desc:

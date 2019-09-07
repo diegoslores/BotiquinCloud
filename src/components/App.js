@@ -1,30 +1,24 @@
 import React from "react";
 // npm install @reach/router
 import { Router } from "@reach/router";
-import PropTypes from "prop-types";
 
 import MedicineSection from "./MedicineSection";
 import Home from "./Home";
 import NotFound from "./NotFound";
-import "../css/App.css";
 import sampleMedicine from "../sample-medicine";
 
 class App extends React.Component {
-  static propTypes = {
-    storeId: PropTypes.string
-  };
-
   state = {
     medicines: {}
   };
 
-  addFish = newMedicine => {
+  addMedicine = newMedicine => {
     // take a copy of existing state
     const newMedicines = { ...this.state.medicines };
     // add newMedicine to newMedicines
     newMedicines[`medicine${Date.now()}`] = newMedicine;
     // set newMedicines as the new state
-    this.setState({ fishes: newMedicines });
+    this.setState({ medicines: newMedicines });
   };
 
   updatedMedicine = (medicineKey, updatedMedicine) => {

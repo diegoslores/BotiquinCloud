@@ -18,7 +18,7 @@ class Home extends React.Component {
     return (
       <main className="main">
         <form className="store-selector" onSubmit={this.goToStore}>
-          <h2>Please enter in the Store</h2>
+          <h2>Welcome To Your Pharmacy</h2>
           <input
             type="text"
             required
