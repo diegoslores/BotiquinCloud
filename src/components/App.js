@@ -1,6 +1,7 @@
 import React from "react";
 // npm install @reach/router
 import { Router } from "@reach/router";
+import { navigate } from "@reach/router";
 
 import MedicineSection from "./MedicineSection";
 import Home from "./Home";
@@ -21,7 +22,7 @@ class App extends React.Component {
     this.setState({ medicines: newMedicines });
   };
 
-  updatedMedicine = (medicineKey, updatedMedicine) => {
+  /*updatedMedicine = (medicineKey, updatedMedicine) => {
     // take a copy of existing state
     const updatedMedicines = { ...this.state.medicines };
     // add our updatedMedicine to updatedMedicine
@@ -37,10 +38,17 @@ class App extends React.Component {
     deleteMedicine[medicineKey] = null;
     // set updatedMedicine as the new state
     this.setState({ medicines: deleteMedicine });
-  };
+  };*/
 
   loadSampleMedicine = () => {
     this.setState({ medicines: sampleMedicine });
+  };
+
+  goToHome = event => {
+    // 1. Stop the <form> from submitting
+    event.preventDefault();
+    // 2. Return to home page.
+    navigate(`/`);
   };
 
   render() {
@@ -54,6 +62,7 @@ class App extends React.Component {
           loadSampleMedicine={this.loadSampleMedicine}
           updateMedicine={this.updatedMedicine}
           deleteMedicine={this.deleteMedicine}
+          goToHome={this.goToHome}
         />
         <NotFound default />
       </Router>
