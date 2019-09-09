@@ -7,11 +7,11 @@ class Inventory extends React.Component {
     return (
       <div className="inventario">
         <h2>Inventario</h2>
-        {Object.keys(this.props.medicines).map(pillKey => (
+        {Object.keys(this.props.medicine).map(pillKey => (
           <EditMedicineForm
             key={pillKey}
             medicineKey={pillKey}
-            medicine={this.props.medicines[pillKey]}
+            medicine={this.props.medicine[pillKey]}
             updateMedicine={this.props.updateMedicine}
             deleteMedicine={this.props.deleteMedicine}
           />

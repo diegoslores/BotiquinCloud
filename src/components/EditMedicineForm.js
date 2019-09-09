@@ -6,15 +6,15 @@ class EditMedicineForm extends React.Component {
       ...this.props.medicine,
       [event.currentTarget.name]: event.currentTarget.value
     };
-    this.props.updatedMedicine(this.props.medicineKey, updatedMedicine);
+    this.props.updateMedicine(this.props.medicineKey, updatedMedicine);
   };
 
-  handleDelete = evento => {
-    const deleteMedicine = {
+  handleDelete = event => {
+    const deletedMedicine = {
       ...this.props.medicine,
-      [evento.currentTarget.name]: evento.currentTarget.value
+      [event.currentTarget.name]: event.currentTarget.value
     };
-    this.props.deleteMedicine(this.props.medicineKey, deleteMedicine);
+    this.props.deleteMedicine(this.props.medicineKey, deletedMedicine);
   };
 
   render() {

@@ -9,12 +9,12 @@ class MedicineSection extends React.Component {
       <main className="main">
         <p>Aqui se gestiona la botica</p>
         <Menu
-          medicines={this.props.medicines}
+          medicine={this.props.medicine}
           addMedicine={this.props.addMedicine}
           loadSampleMedicine={this.props.loadSampleMedicine}
         />
         <Inventory
-          medicines={this.props.medicines}
+          medicine={this.props.medicine}
           updateMedicine={this.props.updateMedicine}
           deleteMedicine={this.props.deleteMedicine}
         />

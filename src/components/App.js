@@ -22,7 +22,7 @@ class App extends React.Component {
     this.setState({ medicines: newMedicines });
   };
 
-  /*updatedMedicine = (medicineKey, updatedMedicine) => {
+  updatedMedicine = (medicineKey, updatedMedicine) => {
     // take a copy of existing state
     const updatedMedicines = { ...this.state.medicines };
     // add our updatedMedicine to updatedMedicine
@@ -33,12 +33,12 @@ class App extends React.Component {
 
   deleteMedicine = medicineKey => {
     // take a copy of existing state
-    const deleteMedicine = { ...this.state.medicines };
+    const deletedMedicine = { ...this.state.medicines };
     // add our updatedMedicine to updatedMedicine
-    deleteMedicine[medicineKey] = null;
+    deletedMedicine[medicineKey] = null;
     // set updatedMedicine as the new state
-    this.setState({ medicines: deleteMedicine });
-  };*/
+    this.setState({ medicines: deletedMedicine });
+  };
 
   loadSampleMedicine = () => {
     this.setState({ medicines: sampleMedicine });
@@ -57,7 +57,7 @@ class App extends React.Component {
         <Home path="/" />
         <MedicineSection
           path="/:storeId"
-          medicines={this.state.medicines}
+          medicine={this.state.medicines}
           addMedicine={this.addMedicine}
           loadSampleMedicine={this.loadSampleMedicine}
           updateMedicine={this.updatedMedicine}

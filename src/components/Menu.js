@@ -14,11 +14,11 @@ class Menu extends React.Component {
 
         <ul className="medicines">
           <p>listado</p>
-          {Object.keys(this.props.medicines).map(pillKey => (
+          {Object.keys(this.props.medicine).map(pillKey => (
             <Medicine
               key={pillKey}
               index={pillKey}
-              medicineDetails={this.props.medicines[pillKey]}
+              medicineDetails={this.props.medicine[pillKey]}
             />
           ))}
         </ul>
