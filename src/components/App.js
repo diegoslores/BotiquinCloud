@@ -1,11 +1,7 @@
 import React from "react";
-// npm install @reach/router
-import { Router } from "@reach/router";
 import { navigate } from "@reach/router";
 
 import MedicineSection from "./MedicineSection";
-import Home from "./Home";
-import NotFound from "./NotFound";
 import sampleMedicine from "../sample-medicine";
 import base from "../base";
 
@@ -15,17 +11,16 @@ class App extends React.Component {
   };
 
   componentDidMount() {
-    //read from localstorage
-    const localStorageRef = localStorage.getItem(this.props.storeId);
-    if (localStorageRef) {
-      this.setState({ order: JSON.parse(localStorageRef) });
-    }
     //sync data from firebase
     const config = {
       context: this,
       state: "medicines"
     };
     this.ref = base.syncState(`${this.props.storeId}/medicines`, config);
+  }
+
+  componentWillUnmount() {
+    base.removeBinding(this.ref);
   }
 
   addMedicine = newMedicine => {
@@ -68,19 +63,15 @@ class App extends React.Component {
 
   render() {
     return (
-      <Router>
-        <Home path="/" />
-        <MedicineSection
-          path="/:storeId"
-          medicine={this.state.medicines}
-          addMedicine={this.addMedicine}
-          loadSampleMedicine={this.loadSampleMedicine}
-          updateMedicine={this.updatedMedicine}
-          deleteMedicine={this.deleteMedicine}
-          goToHome={this.goToHome}
-        />
-        <NotFound default />
-      </Router>
+      <MedicineSection
+        path="/botica/:storeId"
+        medicine={this.state.medicines}
+        addMedicine={this.addMedicine}
+        loadSampleMedicine={this.loadSampleMedicine}
+        updateMedicine={this.updatedMedicine}
+        deleteMedicine={this.deleteMedicine}
+        goToHome={this.goToHome}
+      />
     );
   }
 }

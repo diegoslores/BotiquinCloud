@@ -11,7 +11,7 @@ class Home extends React.Component {
     const myInput = this.inputStore.current;
     const storeName = myInput.value;
     // 3. Change the page to /store/name-of-botica
-    navigate(`/${storeName}`);
+    navigate(`/botica/${storeName}`);
   };
 
   render() {
@@ -24,7 +24,6 @@ class Home extends React.Component {
             required
             placeholder="Store Name"
             ref={this.inputStore}
-            defaultValue="mibotica"
           />
           <button type="submit">Visit the Botica</button>
         </form>
