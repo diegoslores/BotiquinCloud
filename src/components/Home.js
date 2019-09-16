@@ -1,5 +1,8 @@
 import React from "react";
 import { navigate } from "@reach/router";
+import firebase from "firebase";
+import { firebaseApp } from "../base";
+import Login from "./Login";
 
 class Home extends React.Component {
   inputStore = React.createRef();
@@ -14,7 +17,20 @@ class Home extends React.Component {
     navigate(`/botica/${storeName}`);
   };
 
+  authHandler = async authData => {
+    console.log(authData);
+  };
+
+  authenticate = provider => {
+    const authProvider = new firebase.auth[`${provider}AuthProvider`]();
+    firebaseApp
+      .auth()
+      .signInWithPopup(authProvider)
+      .then(this.authHandler);
+  };
+
   render() {
+    return <Login authenticate={this.authenticate} />;
     return (
       <main className="main">
         <form className="store-selector" onSubmit={this.goToStore}>

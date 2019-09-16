@@ -13,6 +13,7 @@ class MedicineSection extends React.Component {
           addMedicine={this.props.addMedicine}
           loadSampleMedicine={this.props.loadSampleMedicine}
         />
+        <p>separacion</p>
         <Inventory
           medicine={this.props.medicine}
           updateMedicine={this.props.updateMedicine}
