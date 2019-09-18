@@ -71,6 +71,7 @@ class App extends React.Component {
         updateMedicine={this.updatedMedicine}
         deleteMedicine={this.deleteMedicine}
         goToHome={this.goToHome}
+        storeId={this.props.match.params.storeId}
       />
     );
   }
