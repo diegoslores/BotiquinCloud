@@ -1,11 +1,16 @@
 import React from "react";
 import { navigate } from "@reach/router";
+import PropTypes from "prop-types";
 
 import MedicineSection from "./MedicineSection";
 import sampleMedicine from "../sample-medicine";
 import base from "../base";
 
 class App extends React.Component {
+  static propTypes = {
+    storeId: PropTypes.string
+  };
+
   state = {
     medicines: {}
   };
@@ -21,6 +26,10 @@ class App extends React.Component {
 
   componentWillUnmount() {
     base.removeBinding(this.ref);
+  }
+
+  componentDidUpdate() {
+    localStorage.setItem(this.props.storeId, JSON.stringify(this.state.order));
   }
 
   addMedicine = newMedicine => {
@@ -71,7 +80,7 @@ class App extends React.Component {
         updateMedicine={this.updatedMedicine}
         deleteMedicine={this.deleteMedicine}
         goToHome={this.goToHome}
-        storeId={this.props.match.params.storeId}
+        storeId={this.props.storeId}
       />
     );
   }

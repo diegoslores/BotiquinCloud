@@ -13,17 +13,26 @@ class MedicineSection extends React.Component {
     owner: null
   };
 
+  componentDidMount() {
+    firebase.auth().onAuthStateChanged(user => {
+      if (user) {
+        this.authHandler({ user });
+      }
+    });
+  }
+
   authHandler = async authData => {
     // 1. Look up the current store in the firebase database
     const store = await base.fetch(this.props.storeId, { context: this });
     console.log(store);
-    //claim it if there's no previous owner
+    console.log("hola");
+    //2. claim it if there's no previous owner
     if (!store.owner) {
       await base.post(`${this.props.storeId}/owner`, {
         data: authData.user.uid
       });
     }
-    //set the state of the inventory to reflect the current user
+    //3. set the state of the inventory to reflect the current user
     this.setState({
       uid: authData.user.uid,
       owner: store.owner || authData.user.uid
@@ -39,7 +48,14 @@ class MedicineSection extends React.Component {
       .then(this.authHandleeer);
   };
 
+  logout = async () => {
+    console.log("Logging out");
+    await firebase.auth().signOut();
+    this.setState({ uid: null });
+  };
+
   render() {
+    const logout = <button onClick={this.logout}>Log Out</button>;
     if (!this.state.uid) {
       return <Login authenticate={this.authenticate} />;
     }
@@ -47,12 +63,14 @@ class MedicineSection extends React.Component {
       return (
         <div>
           <p>No eres el propietario.</p>
+          {logout}
         </div>
       );
     }
     return (
       <main className="main">
         <p>Aqui se gestiona la botica</p>
+        {logout}
         <Menu
           medicine={this.props.medicine}
           addMedicine={this.props.addMedicine}
