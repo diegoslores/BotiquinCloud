@@ -4,7 +4,7 @@ import Menu from "./Menu";
 import Inventory from "./Inventory";
 import Login from "./Login";
 
-import firebase from "firebase";
+import firebase from "firebase/app";
 import base, { firebaseApp } from "../base";
 
 class MedicineSection extends React.Component {
@@ -45,7 +45,7 @@ class MedicineSection extends React.Component {
     firebaseApp
       .auth()
       .signInWithPopup(authProvider)
-      .then(this.authHandleeer);
+      .then(this.authHandler);
   };
 
   logout = async () => {
