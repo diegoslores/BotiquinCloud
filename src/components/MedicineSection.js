@@ -25,7 +25,6 @@ class MedicineSection extends React.Component {
     // 1. Look up the current store in the firebase database
     const store = await base.fetch(this.props.storeId, { context: this });
     console.log(store);
-    console.log("hola");
     //2. claim it if there's no previous owner
     if (!store.owner) {
       await base.post(`${this.props.storeId}/owner`, {
@@ -44,7 +43,7 @@ class MedicineSection extends React.Component {
     const authProvider = new firebase.auth[`${provider}AuthProvider`]();
     firebaseApp
       .auth()
-      .signInWithPopup(authProvider)
+      .signInWithRedirect(authProvider)
       .then(this.authHandler);
   };
 
