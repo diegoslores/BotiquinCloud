@@ -16,3 +16,16 @@ code {
 #root {
   height: 100vh;
 }
+
+/*codigo de bienvenida*/
+form.store-selector {
+  justify-content: center;
+}
+
+#root .jumbotron {
+  background-color: lemonchiffon;
+}
+
+#root h2 {
+  text-align: center;
+}

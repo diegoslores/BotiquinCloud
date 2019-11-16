@@ -6,6 +6,7 @@ import Login from "./Login";
 
 import firebase from "firebase/app";
 import base, { firebaseApp } from "../base";
+import { Button } from "react-bootstrap";
 
 class MedicineSection extends React.Component {
   state = {
@@ -43,7 +44,7 @@ class MedicineSection extends React.Component {
     const authProvider = new firebase.auth[`${provider}AuthProvider`]();
     firebaseApp
       .auth()
-      .signInWithRedirect(authProvider)
+      .signInWithPopup(authProvider)
       .then(this.authHandler);
   };
 
@@ -54,7 +55,11 @@ class MedicineSection extends React.Component {
   };
 
   render() {
-    const logout = <button onClick={this.logout}>Log Out</button>;
+    const logout = (
+      <Button variant="danger" onClick={this.logout}>
+        Log Out
+      </Button>
+    );
     if (!this.state.uid) {
       return <Login authenticate={this.authenticate} />;
     }
