@@ -1,17 +1,22 @@
 import React from "react";
 import PropTypes from "prop-types";
-import { Jumbotron } from "react-bootstrap";
+import { Button, Jumbotron } from "react-bootstrap";
 
 const Login = props => (
-  <nav className="login container">
+  <main className="login container">
     <Jumbotron>
-      <h2>LOGIN</h2>
-      <p>Sign in to manage your store´s inventory.</p>
-      <button className="google" onClick={() => props.authenticate("Google")}>
-        Login with Google
-      </button>
+      <form className="store-selector">
+        <h2>Accede con tu cuenta de Google</h2>
+        <Button
+          variant="info"
+          className="google"
+          onClick={() => props.authenticate("Google")}
+        >
+          Login
+        </Button>
+      </form>
     </Jumbotron>
-  </nav>
+  </main>
 );
 
 Login.propTypes = {

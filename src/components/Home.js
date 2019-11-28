@@ -1,6 +1,6 @@
 import React from "react";
 import { navigate } from "@reach/router";
-import { Button, Jumbotron } from "react-bootstrap";
+import { Button, Jumbotron, Form } from "react-bootstrap";
 
 class Home extends React.Component {
   inputStore = React.createRef();
@@ -21,14 +21,14 @@ class Home extends React.Component {
         <Jumbotron>
           <form className="store-selector" onSubmit={this.goToStore}>
             <h2>Bienvenido a BotiquinCloud</h2>
-            <input
+            <Form.Control
               type="text"
               required
-              placeholder="Nombre de botiquin"
+              placeholder="nombre de botiquin"
               ref={this.inputStore}
             />
             <Button variant="info" type="submit">
-              Acceso
+              Acceder
             </Button>
           </form>
         </Jumbotron>
