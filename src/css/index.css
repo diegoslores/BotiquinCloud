@@ -1,15 +1,22 @@
-@import url("https://fonts.googleapis.com/css?family=Lora&display=swap");
-
-body {
-  margin: 0;
-  font-family: "Lora", serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  background-color: #d9f5f8;
+/* lora-regular - latin */
+@font-face {
+  font-family: "Lora";
+  font-style: normal;
+  font-weight: 400;
+  src: url("../fonts/lora-v14-latin-regular.eot");
+  src: local("Lora Regular"), local("Lora-Regular"),
+    url("../fonts/lora-v14-latin-regular.woff2") format("woff2"),
+    url("../fonts/lora-v14-latin-regular.woff") format("woff"),
+    url("../fonts/lora-v14-latin-regular.ttf") format("truetype"),
+    url("../fonts/lora-v14-latin-regular.svg#Lora") format("svg");
 }
 
-#root {
-  height: 100vh;
+body {
+  font-family: "Lora", serif !important;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  background-color: #d9f5f8 !important;
+  padding-top: 10%;
 }
 
 /*codigo de bienvenida*/
@@ -19,18 +26,15 @@ form.store-selector {
 
 #root .jumbotron {
   background-color: #fff887;
-  margin-top: 10%;
+  text-align: center;
 }
 
-#root .store-selector,
-#root .login {
+#root .store-selector {
   width: 60%;
-  text-align: center;
   margin: auto;
 }
 
 #root .store-selector input,
-#root .login button {
+#root .jumbotron button {
   margin: 5% auto;
-  text-align: center;
 }

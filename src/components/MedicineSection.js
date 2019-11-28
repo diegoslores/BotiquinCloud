@@ -6,7 +6,7 @@ import Login from "./Login";
 
 import firebase from "firebase/app";
 import base, { firebaseApp } from "../base";
-import { Button } from "react-bootstrap";
+import { Button, Jumbotron } from "react-bootstrap";
 
 class MedicineSection extends React.Component {
   state = {
@@ -65,10 +65,12 @@ class MedicineSection extends React.Component {
     }
     if (this.state.uid !== this.state.owner) {
       return (
-        <div>
-          <p>No eres el propietario.</p>
-          {logout}
-        </div>
+        <main className="container">
+          <Jumbotron>
+            <h2>No eres el Propietario</h2>
+            {logout}
+          </Jumbotron>
+        </main>
       );
     }
     return (
