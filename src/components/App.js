@@ -79,7 +79,6 @@ class App extends React.Component {
         loadSampleMedicine={this.loadSampleMedicine}
         updateMedicine={this.updatedMedicine}
         deleteMedicine={this.deleteMedicine}
-        goToHome={this.goToHome}
         storeId={this.props.storeId}
       />
     );

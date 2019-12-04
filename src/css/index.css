@@ -16,7 +16,6 @@ body {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   background-color: #d9f5f8 !important;
-  padding-top: 10%;
 }
 
 /*codigo de bienvenida*/
@@ -29,12 +28,23 @@ form.store-selector {
   text-align: center;
 }
 
+#root .container {
+  padding-top: 10%;
+}
+
 #root .store-selector {
   width: 60%;
   margin: auto;
 }
 
 #root .store-selector input,
-#root .jumbotron button {
-  margin: 5% auto;
+#root .jumbotron button,
+.head button {
+  margin: 5% 2.5%;
+  text-align: center;
+}
+
+/*Formulario medicinas*/
+#root .oculto {
+  display: none;
 }

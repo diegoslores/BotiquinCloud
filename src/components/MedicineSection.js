@@ -3,6 +3,7 @@ import React from "react";
 import Menu from "./Menu";
 import Inventory from "./Inventory";
 import Login from "./Login";
+import Header from "./Header";
 
 import firebase from "firebase/app";
 import base, { firebaseApp } from "../base";
@@ -60,6 +61,7 @@ class MedicineSection extends React.Component {
         Log Out
       </Button>
     );
+
     if (!this.state.uid) {
       return <Login authenticate={this.authenticate} />;
     }
@@ -69,28 +71,31 @@ class MedicineSection extends React.Component {
           <Jumbotron>
             <h2>No eres el Propietario</h2>
             {logout}
+            <Button variant="danger" onClick={this.props.goToHome}>
+              Inicio
+            </Button>
           </Jumbotron>
         </main>
       );
     }
     return (
-      <main className="main">
-        <p>Aqui se gestiona la botica</p>
-        {logout}
-        <Menu
-          medicine={this.props.medicine}
-          addMedicine={this.props.addMedicine}
-          loadSampleMedicine={this.props.loadSampleMedicine}
-        />
-        <p>separacion</p>
-        <Inventory
-          medicine={this.props.medicine}
-          updateMedicine={this.props.updateMedicine}
-          deleteMedicine={this.props.deleteMedicine}
-        />
-
-        <button onClick={this.props.goToHome}>Salir</button>
-      </main>
+      <>
+        <Header goToHome={this.props.goToHome} logout={this.logout} />
+        <main className="main">
+          <Menu
+            medicine={this.props.medicine}
+            addMedicine={this.props.addMedicine}
+            loadSampleMedicine={this.props.loadSampleMedicine}
+          />
+          <p>separacion</p>
+          <Inventory
+            medicine={this.props.medicine}
+            updateMedicine={this.props.updateMedicine}
+            deleteMedicine={this.props.deleteMedicine}
+          />
+          <button onClick={this.props.goToHome}>Salir</button>
+        </main>
+      </>
     );
   }
 }
