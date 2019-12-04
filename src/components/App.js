@@ -3,8 +3,13 @@ import { navigate } from "@reach/router";
 import PropTypes from "prop-types";
 
 import MedicineSection from "./MedicineSection";
+import Header from "./Header";
 import sampleMedicine from "../sample-medicine";
-import base from "../base";
+import firebase from "firebase/app";
+import base, { firebaseApp } from "../base";
+
+import Login from "./Login";
+import { Button, Jumbotron } from "react-bootstrap";
 
 class App extends React.Component {
   static propTypes = {
@@ -22,6 +27,12 @@ class App extends React.Component {
       state: "medicines"
     };
     this.ref = base.syncState(`${this.props.storeId}/medicines`, config);
+
+    firebase.auth().onAuthStateChanged(user => {
+      if (user) {
+        this.authHandler({ user });
+      }
+    });
   }
 
   componentWillUnmount() {
@@ -70,17 +81,74 @@ class App extends React.Component {
     navigate(`/`);
   };
 
+  authenticate = provider => {
+    const authProvider = new firebase.auth[`${provider}AuthProvider`]();
+    firebaseApp
+      .auth()
+      .signInWithPopup(authProvider)
+      .then(this.authHandler);
+  };
+
+  logout = async () => {
+    console.log("Logging out");
+    await firebase.auth().signOut();
+    this.setState({ uid: null });
+  };
+
+  authHandler = async authData => {
+    // 1. Look up the current store in the firebase database
+    const store = await base.fetch(this.props.storeId, { context: this });
+    console.log(store);
+    //2. claim it if there's no previous owner
+    if (!store.owner) {
+      await base.post(`${this.props.storeId}/owner`, {
+        data: authData.user.uid
+      });
+    }
+    //3. set the state of the inventory to reflect the current user
+    this.setState({
+      uid: authData.user.uid,
+      owner: store.owner || authData.user.uid
+    });
+    console.log(authData);
+  };
+
   render() {
+    const logout = (
+      <Button variant="danger" onClick={this.logout}>
+        Log Out
+      </Button>
+    );
+
+    if (!this.state.uid) {
+      return <Login authenticate={this.authenticate} />;
+    }
+    if (this.state.uid !== this.state.owner) {
+      return (
+        <main className="container">
+          <Jumbotron>
+            <h2>No eres el Propietario</h2>
+            {logout}
+            <Button variant="danger" onClick={this.props.goToHome}>
+              Inicio
+            </Button>
+          </Jumbotron>
+        </main>
+      );
+    }
     return (
-      <MedicineSection
-        path="/botica/:storeId"
-        medicine={this.state.medicines}
-        addMedicine={this.addMedicine}
-        loadSampleMedicine={this.loadSampleMedicine}
-        updateMedicine={this.updatedMedicine}
-        deleteMedicine={this.deleteMedicine}
-        storeId={this.props.storeId}
-      />
+      <>
+        <Header goToHome={this.goToHome} logout={this.logout} />
+        <MedicineSection
+          path="/botica/:storeId"
+          medicine={this.state.medicines}
+          addMedicine={this.addMedicine}
+          loadSampleMedicine={this.loadSampleMedicine}
+          updateMedicine={this.updatedMedicine}
+          deleteMedicine={this.deleteMedicine}
+          storeId={this.props.storeId}
+        />
+      </>
     );
   }
 }

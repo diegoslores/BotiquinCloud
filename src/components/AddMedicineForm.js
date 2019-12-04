@@ -1,5 +1,5 @@
 import React from "react";
-import { Button, Form, Col, Row } from "react-bootstrap";
+import { Form, Col, Row } from "react-bootstrap";
 
 class AddMedicineForm extends React.Component {
   nameRef = React.createRef();
