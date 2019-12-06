@@ -1,15 +1,14 @@
 import React from "react";
 import { navigate } from "@reach/router";
 import PropTypes from "prop-types";
+import { Button, Jumbotron } from "react-bootstrap";
 
 import MedicineSection from "./MedicineSection";
 import Header from "./Header";
 import sampleMedicine from "../sample-medicine";
 import firebase from "firebase/app";
 import base, { firebaseApp } from "../base";
-
 import Login from "./Login";
-import { Button, Jumbotron } from "react-bootstrap";
 
 class App extends React.Component {
   static propTypes = {
@@ -18,6 +17,32 @@ class App extends React.Component {
 
   state = {
     medicines: {}
+  };
+
+  authenticate = provider => {
+    const authProvider = new firebase.auth[`${provider}AuthProvider`]();
+    firebaseApp
+      .auth()
+      .signInWithPopup(authProvider)
+      .then(this.authHandler);
+  };
+
+  authHandler = async authData => {
+    // 1. busca el botiquin en la base de datos de firebase
+    const store = await base.fetch(this.props.storeId, { context: this });
+    console.log(store);
+    //2. Si no existe lo  asigna al usuario
+    if (!store.owner) {
+      await base.post(`${this.props.storeId}/owner`, {
+        data: authData.user.uid
+      });
+    }
+    //3. Cambia el estado del botiquin y le asigna el usuario
+    this.setState({
+      uid: authData.user.uid,
+      owner: store.owner || authData.user.uid
+    });
+    console.log("authhandler" + authData);
   };
 
   componentDidMount() {
@@ -44,29 +69,25 @@ class App extends React.Component {
   }
 
   addMedicine = newMedicine => {
-    // take a copy of existing state
+    // copia el estado del inventario existente
     const newMedicines = { ...this.state.medicines };
-    // add newMedicine to newMedicines
+    // añade una nueva medicina
     newMedicines[`medicine${Date.now()}`] = newMedicine;
-    // set newMedicines as the new state
+    // introduce la nueva medicina en el estado con las demás
     this.setState({ medicines: newMedicines });
   };
 
   updatedMedicine = (medicineKey, updatedMedicine) => {
-    // take a copy of existing state
     const updatedMedicines = { ...this.state.medicines };
-    // add our updatedMedicine to updatedMedicine
+    // añade la actualización de la medicina
     updatedMedicines[medicineKey] = updatedMedicine;
-    // set updatedMedicine as the new state
     this.setState({ medicines: updatedMedicines });
   };
 
   deleteMedicine = medicineKey => {
-    // take a copy of existing state
     const deletedMedicine = { ...this.state.medicines };
-    // add our updatedMedicine to updatedMedicine
+    // Actualiza la medicina eliminandola
     deletedMedicine[medicineKey] = null;
-    // set updatedMedicine as the new state
     this.setState({ medicines: deletedMedicine });
   };
 
@@ -75,42 +96,14 @@ class App extends React.Component {
   };
 
   goToHome = event => {
-    // 1. Stop the <form> from submitting
     event.preventDefault();
-    // 2. Return to home page.
+    // Vuelve al Home.
     navigate(`/`);
   };
 
-  authenticate = provider => {
-    const authProvider = new firebase.auth[`${provider}AuthProvider`]();
-    firebaseApp
-      .auth()
-      .signInWithPopup(authProvider)
-      .then(this.authHandler);
-  };
-
   logout = async () => {
-    console.log("Logging out");
     await firebase.auth().signOut();
     this.setState({ uid: null });
-  };
-
-  authHandler = async authData => {
-    // 1. Look up the current store in the firebase database
-    const store = await base.fetch(this.props.storeId, { context: this });
-    console.log(store);
-    //2. claim it if there's no previous owner
-    if (!store.owner) {
-      await base.post(`${this.props.storeId}/owner`, {
-        data: authData.user.uid
-      });
-    }
-    //3. set the state of the inventory to reflect the current user
-    this.setState({
-      uid: authData.user.uid,
-      owner: store.owner || authData.user.uid
-    });
-    console.log(authData);
   };
 
   render() {

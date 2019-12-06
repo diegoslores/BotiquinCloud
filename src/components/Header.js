@@ -8,9 +8,7 @@ class Header extends React.Component {
       <header className="head">
         <h1>BotiquinCloud</h1>
         <Link to="/" className="menu-item">
-          <Button variant="danger" onClick={this.props.goToHome}>
-            Inicio
-          </Button>
+          <Button variant="danger">Inicio</Button>
         </Link>
         <Button variant="danger" onClick={this.props.logout}>
           Log Out

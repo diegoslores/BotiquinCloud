@@ -20,7 +20,7 @@ class EditMedicineForm extends React.Component {
 
   render() {
     return (
-      <form className="medicine-edit" onSubmit={this.createMedicine}>
+      <form className="medicine-edit">
         <Form.Row>
           <Col>
             <Form.Control

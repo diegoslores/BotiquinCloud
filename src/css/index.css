@@ -48,3 +48,7 @@ form.store-selector {
 #root .oculto {
   display: none;
 }
+
+#root li {
+  list-style-type: none;
+}
