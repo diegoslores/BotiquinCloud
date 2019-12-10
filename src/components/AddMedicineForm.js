@@ -41,100 +41,102 @@ class AddMedicineForm extends React.Component {
 
   render() {
     return (
-      <form className="medicine-edit" onSubmit={this.createMedicine}>
-        <Row>
-          <Col>
-            <Form.Control
-              type="text"
-              ref={this.nameRef}
-              name="name"
-              placeholder="nombre"
-            />
+      <main>
+        <form className="medicine-edit" onSubmit={this.createMedicine}>
+          <Row>
+            <Col>
+              <Form.Control
+                type="text"
+                ref={this.nameRef}
+                name="name"
+                placeholder="nombre"
+              />
 
-            <textarea
-              type="text"
-              ref={this.descRef}
-              name="desc"
-              placeholder="descripcion"
-            />
+              <textarea
+                type="text"
+                ref={this.descRef}
+                name="desc"
+                placeholder="descripcion"
+              />
 
-            <select name="tipo" ref={this.tipoRef}>
-              <option value="comprimido">Comprimido</option>
-              <option value="pomada">Pomada</option>
-              <option value="liquido">Liquido</option>
-              <option value="otro">Otro</option>
-            </select>
+              <select name="tipo" ref={this.tipoRef}>
+                <option value="comprimido">Comprimido</option>
+                <option value="pomada">Pomada</option>
+                <option value="liquido">Liquido</option>
+                <option value="otro">Otro</option>
+              </select>
 
-            <Form.Control
-              type="text"
-              ref={this.composicionRef}
-              name="composicion"
-              placeholder="composicion"
-            />
+              <Form.Control
+                type="text"
+                ref={this.composicionRef}
+                name="composicion"
+                placeholder="composicion"
+              />
 
-            <Form.Control
-              type="text"
-              ref={this.cantidadRef}
-              name="cantidad"
-              placeholder="cantidad restante"
-            />
+              <Form.Control
+                type="text"
+                ref={this.cantidadRef}
+                name="cantidad"
+                placeholder="cantidad restante"
+              />
 
-            <Form.Control
-              type="text"
-              ref={this.cantidadEnvaseRef}
-              name="cantidad_envase"
-              placeholder="cantidad del envase"
-            />
+              <Form.Control
+                type="text"
+                ref={this.cantidadEnvaseRef}
+                name="cantidad_envase"
+                placeholder="cantidad del envase"
+              />
 
-            <Form.Control
-              type="text"
-              ref={this.prescripcionRef}
-              name="prescripcion"
-              placeholder="prescripcion"
-            />
+              <Form.Control
+                type="text"
+                ref={this.prescripcionRef}
+                name="prescripcion"
+                placeholder="prescripcion"
+              />
 
-            <Form.Control
-              type="text"
-              ref={this.caducidadRef}
-              name="caducidad"
-              placeholder="caducidad"
-            />
+              <Form.Control
+                type="text"
+                ref={this.caducidadRef}
+                name="caducidad"
+                placeholder="caducidad"
+              />
 
-            <Form.Control
-              type="text"
-              ref={this.udstotalesRef}
-              name="udstotales"
-              placeholder="unidades totales"
-            />
+              <Form.Control
+                type="text"
+                ref={this.udstotalesRef}
+                name="udstotales"
+                placeholder="unidades totales"
+              />
 
-            <Form.Control
-              type="text"
-              ref={this.fabricanteRef}
-              name="fabricante"
-              placeholder="fabricante"
-            />
-          </Col>
-          <Col>
-            <Form.Control
-              type="text"
-              ref={this.imageRef}
-              name="image"
-              placeholder="imagen"
-            />
+              <Form.Control
+                type="text"
+                ref={this.fabricanteRef}
+                name="fabricante"
+                placeholder="fabricante"
+              />
+            </Col>
+            <Col>
+              <Form.Control
+                type="text"
+                ref={this.imageRef}
+                name="image"
+                placeholder="imagen"
+              />
 
-            <textarea
-              type="text"
-              ref={this.pacientesRef}
-              name="pacientes"
-              placeholder="pacientes"
-            />
+              <textarea
+                type="text"
+                ref={this.pacientesRef}
+                name="pacientes"
+                placeholder="pacientes"
+              />
 
-            <button className="btn btn-info" title="submit">
-              Añadir Medicina
-            </button>
-          </Col>
-        </Row>
-      </form>
+              <button className="btn btn-info" title="submit">
+                Añadir Medicina
+              </button>
+            </Col>
+          </Row>
+        </form>
+      </main>
     );
   }
 }
