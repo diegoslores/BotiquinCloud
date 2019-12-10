@@ -38,8 +38,7 @@ form.store-selector {
 }
 
 #root .store-selector input,
-#root .jumbotron button,
-.head button {
+#root .jumbotron button {
   margin: 5% 2.5%;
   text-align: center;
 }
@@ -51,4 +50,8 @@ form.store-selector {
 
 #root li {
   list-style-type: none;
+}
+
+#root .head input {
+  text-align: center;
 }

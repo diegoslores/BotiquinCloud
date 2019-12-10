@@ -1,16 +1,24 @@
 import React from "react";
-import AddMedicineForm from "./AddMedicineForm";
-import Medicine from "./Medicine";
 import { Button } from "react-bootstrap";
+import { navigate } from "@reach/router";
+
+import Medicine from "./Medicine";
 
 class Menu extends React.Component {
+  goToNew = event => {
+    event.preventDefault();
+    navigate(`/${this.props.storeId}`);
+  };
   render() {
     return (
       <div className="Menu">
         <h2>Menu</h2>
-        <AddMedicineForm addMedicine={this.props.addMedicine} />
+
         <Button variant="info" onClick={this.props.loadSampleMedicine}>
           Carga Ejemplo
+        </Button>
+        <Button variant="info" onClick={this.goToNew}>
+          Nuevo
         </Button>
 
         <ul className="medicines">

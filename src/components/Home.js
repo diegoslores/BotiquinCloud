@@ -11,8 +11,8 @@ class Home extends React.Component {
     // 2. Get the `name-of-botica` from <input>
     const myInput = this.inputStore.current;
     const storeName = myInput.value;
-    // 3. Change the page to /store/name-of-botica
-    navigate(`/botica/${storeName}`);
+    // 3. Change the page to /name-of-botica
+    navigate(`/${storeName}`);
   };
 
   render() {

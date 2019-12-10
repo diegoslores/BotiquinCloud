@@ -16,7 +16,9 @@ class App extends React.Component {
   };
 
   state = {
-    medicines: {}
+    medicines: {},
+    uid: null,
+    owner: null
   };
 
   authenticate = provider => {
@@ -42,7 +44,8 @@ class App extends React.Component {
       uid: authData.user.uid,
       owner: store.owner || authData.user.uid
     });
-    console.log("authhandler" + authData);
+    console.log("authhhhhandler");
+    console.log(authData);
   };
 
   componentDidMount() {
@@ -131,9 +134,14 @@ class App extends React.Component {
     }
     return (
       <>
-        <Header goToHome={this.goToHome} logout={this.logout} />
+        <Header
+          goToHome={this.goToHome}
+          logout={this.logout}
+          storeId={this.props.storeId}
+          owner={this.state.owner}
+        />
         <MedicineSection
-          path="/botica/:storeId"
+          path=":storeId"
           medicine={this.state.medicines}
           addMedicine={this.addMedicine}
           loadSampleMedicine={this.loadSampleMedicine}

@@ -8,7 +8,7 @@ import NotFound from "./NotFound";
 const Routes = () => (
   <Router>
     <Home path="/" />
-    <App path="/botica/:storeId" />
+    <App path=":storeId" />
     <NotFound default />
   </Router>
 );
