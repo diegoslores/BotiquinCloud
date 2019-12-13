@@ -20,7 +20,7 @@ class Medicine extends React.Component {
 
     return (
       <li className="menu-medicine">
-        <a href=`#{name}`>
+        <a href="#{name}">
           <Button variant="info" className="medicine-name">
             {name}
           </Button>
