@@ -13,7 +13,7 @@ class Medicine extends React.Component {
       cantidadEnvase,
       prescripcion,
       caducidad,
-      udstotales,
+      envasestotales,
       pacientes,
       fabricante
     } = this.props.medicineDetails;
@@ -32,7 +32,7 @@ class Medicine extends React.Component {
           {cantidadEnvase}
           {prescripcion}
           {caducidad}
-          {udstotales}
+          {envasestotales}
           {pacientes}
           {fabricante}
         </div>
