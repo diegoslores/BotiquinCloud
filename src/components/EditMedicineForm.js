@@ -88,7 +88,7 @@ class EditMedicineForm extends React.Component {
               type="text"
               name="uds_totales"
               onChange={this.handleChange}
-              value={this.props.medicine.udstotales}
+              value={this.props.medicine.envasesTotales}
             />
 
             <Form.Control
@@ -99,6 +99,7 @@ class EditMedicineForm extends React.Component {
             />
           </Col>
           <Col>
+            <img src={this.props.medicine.image} alt={this.props.medicine.name} />
             <Form.Control
               type="text"
               name="image"
