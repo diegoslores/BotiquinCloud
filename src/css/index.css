@@ -3,12 +3,12 @@
   font-family: "Lora";
   font-style: normal;
   font-weight: 400;
-  src: url("../fonts/lora-v14-latin-regular.eot");
+  src: url("fonts/lora-v14-latin-regular.eot");
   src: local("Lora Regular"), local("Lora-Regular"),
-    url("../fonts/lora-v14-latin-regular.woff2") format("woff2"),
-    url("../fonts/lora-v14-latin-regular.woff") format("woff"),
-    url("../fonts/lora-v14-latin-regular.ttf") format("truetype"),
-    url("../fonts/lora-v14-latin-regular.svg#Lora") format("svg");
+    url("fonts/lora-v14-latin-regular.woff2") format("woff2"),
+    url("fonts/lora-v14-latin-regular.woff") format("woff"),
+    url("fonts/lora-v14-latin-regular.ttf") format("truetype"),
+    url("fonts/lora-v14-latin-regular.svg#Lora") format("svg");
 }
 
 body {
