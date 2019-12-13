@@ -50,10 +50,10 @@ const pills = {
     desc: "Tiritas para cubrir heridas superficiales",
     fabricante: "",
     image: "/images/tiritas.jpg",
-    name: "otros",
+    name: "Tiritas",
     pacientes: "Pedro Perez,\nMaría Soledad",
     prescripcion: "Una con cada herida",
-    tipo: "otros",
+    tipo: "otro",
     envasesTotales: "2"
   },
   medicine5: {
