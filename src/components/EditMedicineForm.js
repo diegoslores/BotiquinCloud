@@ -23,7 +23,7 @@ class EditMedicineForm extends React.Component {
       <form className="medicine-edit">
         <Form.Row>
           <Col>
-            <a div={this.props.medicine.name} className="oculto"/>
+            <a id={this.props.medicine.name} className="oculto"/>
             <Form.Control
               type="text"
               name="name"
