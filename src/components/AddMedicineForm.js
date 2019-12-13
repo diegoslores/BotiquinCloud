@@ -11,7 +11,7 @@ class AddMedicineForm extends React.Component {
   cantidadEnvaseRef = React.createRef();
   prescripcionRef = React.createRef();
   caducidadRef = React.createRef();
-  udstotalesRef = React.createRef();
+  envasesTotalesRef = React.createRef();
   pacientesRef = React.createRef();
   fabricanteRef = React.createRef();
 
@@ -29,7 +29,7 @@ class AddMedicineForm extends React.Component {
       cantidadEnvase: this.cantidadEnvaseRef.current.value,
       prescripcion: this.prescripcionRef.current.value,
       caducidad: this.caducidadRef.current.value,
-      udstotales: this.udstotalesRef.current.value,
+      envasesTotales: this.envasesTotalesRef.current.value,
       pacientes: this.pacientesRef.current.value,
       fabricante: this.fabricanteRef.current.value
     };
@@ -102,7 +102,7 @@ class AddMedicineForm extends React.Component {
 
             <Form.Control
               type="text"
-              ref={this.udstotalesRef}
+              ref={this.envasesTotalesRef}
               name="udstotales"
               placeholder="unidades totales"
             />
