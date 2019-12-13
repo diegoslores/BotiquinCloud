@@ -20,9 +20,11 @@ class Medicine extends React.Component {
 
     return (
       <li className="menu-medicine">
-        <Button variant="info" className="medicine-name">
-          {name}
-        </Button>
+        <a href=`#${name}`>
+          <Button variant="info" className="medicine-name">
+            {name}
+          </Button>
+        </a>
         <div className="oculto">
           {desc}
           {image}
