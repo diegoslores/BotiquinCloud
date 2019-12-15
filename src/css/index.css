@@ -55,3 +55,12 @@ form.store-selector {
 #root .head input {
   text-align: center;
 }
+
+/*Medicine edit*/
+
+#root .medicine-edit,
+#root .medicine-edit .form-control,
+img,
+textarea {
+  margin: 1%;
+}
