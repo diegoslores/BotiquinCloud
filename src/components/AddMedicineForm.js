@@ -42,8 +42,7 @@ class AddMedicineForm extends React.Component {
   render() {
     return (
       <Form className="medicine-edit row" onSubmit={this.createMedicine}>
-        <a nae="top"></a>
-        <Col>
+        <Col sm="9">
           <Form.Control
             type="text"
             ref={this.nameRef}
@@ -129,7 +128,7 @@ class AddMedicineForm extends React.Component {
             placeholder="pacientes"
           />
 
-          <button className="btn btn-info" title="submit">
+          <button className="btn btn-info" variant="danger" title="submit">
             Añadir Medicina
           </button>
         </Col>

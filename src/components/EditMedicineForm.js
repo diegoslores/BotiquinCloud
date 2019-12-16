@@ -21,7 +21,7 @@ class EditMedicineForm extends React.Component {
   render() {
     return (
       <Form className="medicine-edit row">
-        <Col>
+        <Col sm="9">
           <a id={this.props.medicine.name} />
           <Form.Control
             type="text"
@@ -115,7 +115,7 @@ class EditMedicineForm extends React.Component {
             value={this.props.medicine.pacientes}
           />
 
-          <Button type="button" onClick={this.handleDelete}>
+          <Button type="button" variant="danger" onClick={this.handleDelete}>
             Borrar Medicina
           </Button>
         </Col>

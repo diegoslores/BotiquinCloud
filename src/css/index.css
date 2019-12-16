@@ -17,18 +17,7 @@
 
 body {
   font-family: "Lora", serif !important;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
   background-color: #d9f5f8 !important;
-}
-
-#root {
-  padding: 0.5%;
-}
-
-#root .head,
-#root .menu {
-  z-index: 5;
 }
 
 /*codigo de bienvenida*/
@@ -37,7 +26,7 @@ form.store-selector {
 }
 
 #root .jumbotron {
-  background-color: #fff887;
+  background-color: #ffb387;
   text-align: center;
 }
 
@@ -56,51 +45,42 @@ form.store-selector {
   text-align: center;
 }
 
-/*Formulario medicinas*/
+/*fix head y menu*/
+#root .head,
+#root .menu {
+  z-index: 99;
+  background-color: #ffb387;
+  border: solid #fa8846 2px;
+}
 
 #root .head input,
 #root .head button {
   text-align: center;
   margin: 1px;
-}
-
-#root .head button {
   width: 100%;
 }
 
-#root .medicine-edit,
+#root .head {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  padding: 20px;
+}
+
+/*Formulario medicinas*/
+
 #root .medicine-edit .form-control,
 img,
 textarea {
   margin: 0.5%;
 }
 
-#root .medicine-edit {
-  border: solid 1px;
-  border-radius: 1px;
-}
-
-#root .main-medicine .menu {
-  margin: 0.4%;
-}
-
-#root .head {
-  position: fixed;
-  top: 1.5%;
-  width: 100%;
-  height: 120px;
-  padding: 20px;
-  box-sizing: border-box;
-  background: #fff887;
-  border: solid 1px;
-}
-
 /*Menu*/
 #root .menu {
   position: fixed;
-  width: 250px;
+  width: 200px;
+  height: 80vh;
   padding: 20px;
-  border: solid 1px;
 }
 
 #root .menu .btn {
@@ -120,6 +100,30 @@ textarea {
   margin-top: 130px;
 }
 
-#root .inventario {
-  margin-left: 260px;
+/*otros*/
+#root .head,
+#root .main-medicine {
+  margin-right: 0;
+  margin-left: 0;
+}
+
+#root .medicine-edit .col,
+#root .main-medicine .col-sm-10 {
+  padding-left: 0;
+}
+
+@media screen and (max-width: 575px) {
+  #root .head {
+    height: 300px;
+  }
+
+  #root .main-medicine {
+    margin-top: 320px;
+  }
+}
+
+#root .medicine-edit {
+  border: solid;
+  height: 80vh;
+  margin-bottom: 2%;
 }
