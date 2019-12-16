@@ -1,5 +1,5 @@
 import React from "react";
-import { Form, Col, Row } from "react-bootstrap";
+import { Form, Col } from "react-bootstrap";
 
 class AddMedicineForm extends React.Component {
   nameRef = React.createRef();
@@ -42,7 +42,7 @@ class AddMedicineForm extends React.Component {
   render() {
     return (
       <Form className="medicine-edit row" onSubmit={this.createMedicine}>
-        <a id="nuevo" />
+        <a nae="top"></a>
         <Col>
           <Form.Control
             type="text"

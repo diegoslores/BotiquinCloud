@@ -19,12 +19,10 @@ class Medicine extends React.Component {
     } = this.props.medicineDetails;
 
     return (
-      <li className="menu-medicine">
-        <a href={"#" + name}>
-          <Button variant="info" className="medicine-name">
-            {name}
-          </Button>
-        </a>
+      <a href={"#" + name}>
+        <Button variant="info" className="medicine-name">
+          {name}
+        </Button>
         <div className="oculto">
           {desc}
           {image}
@@ -38,7 +36,7 @@ class Medicine extends React.Component {
           {pacientes}
           {fabricante}
         </div>
-      </li>
+      </a>
     );
   }
 }
