@@ -67,14 +67,6 @@ form.store-selector {
   padding: 20px;
 }
 
-/*Formulario medicinas*/
-
-#root .medicine-edit .form-control,
-img,
-textarea {
-  margin: 0.5%;
-}
-
 /*Menu*/
 #root .menu {
   position: fixed;
@@ -100,6 +92,12 @@ textarea {
   margin-top: 130px;
 }
 
+/*formularios*/
+#root .form-group {
+  margin-bottom: 0rem;
+  padding-left: 1rem;
+}
+
 /*otros*/
 #root .head,
 #root .main-medicine {
@@ -112,6 +110,12 @@ textarea {
   padding-left: 0;
 }
 
+#root .medicine-edit {
+  border: solid;
+  height: 80vh;
+  margin-bottom: 2%;
+}
+
 @media screen and (max-width: 575px) {
   #root .head {
     height: 300px;
@@ -120,10 +124,4 @@ textarea {
   #root .main-medicine {
     margin-top: 320px;
   }
-}
-
-#root .medicine-edit {
-  border: solid;
-  height: 80vh;
-  margin-bottom: 2%;
 }

@@ -1,5 +1,5 @@
 import React from "react";
-import { Button, Form, Col } from "react-bootstrap";
+import { Button, Form, Col, Row } from "react-bootstrap";
 
 class EditMedicineForm extends React.Component {
   handleChange = event => {
@@ -21,7 +21,8 @@ class EditMedicineForm extends React.Component {
   render() {
     return (
       <Form className="medicine-edit row">
-        <Col sm="9">
+        <Form.Group as={Col} md="9">
+          <Form.Label>Nombre Medicamento</Form.Label>
           <a id={this.props.medicine.name} />
           <Form.Control
             type="text"
@@ -29,16 +30,17 @@ class EditMedicineForm extends React.Component {
             onChange={this.handleChange}
             value={this.props.medicine.name}
           />
-
+          <Form.Label>Descripción Medicamento</Form.Label>
           <Form.Control
-            as="textarea"
+            as="text"
             type="text"
             name="desc"
             onChange={this.handleChange}
             value={this.props.medicine.desc}
           />
-
-          <select
+          <Form.Label>Tipo</Form.Label>
+          <Form.Control
+            as="select"
             name="tipo"
             onChange={this.handleChange}
             value={this.props.medicine.tipo}
@@ -47,66 +49,79 @@ class EditMedicineForm extends React.Component {
             <option value="pomada">Pomada</option>
             <option value="liquido">Liquido</option>
             <option value="otro">Otro</option>
-          </select>
-
+          </Form.Control>
+          <Form.Label>Composición</Form.Label>
           <Form.Control
             type="text"
             name="composicion"
             onChange={this.handleChange}
             value={this.props.medicine.composicion}
           />
-
-          <Form.Control
-            type="text"
-            name="cantidad"
-            onChange={this.handleChange}
-            value={this.props.medicine.cantidad}
-          />
-
-          <Form.Control
-            type="text"
-            name="cantidad_envase"
-            onChange={this.handleChange}
-            value={this.props.medicine.cantidadEnvase}
-          />
-
+          <Form.Group as={Row}>
+            <Form.Group as={Col}>
+              <Form.Label>Cantidad restante</Form.Label>
+              <Form.Control
+                type="text"
+                name="cantidad"
+                onChange={this.handleChange}
+                value={this.props.medicine.cantidad}
+              />
+            </Form.Group>
+            <Form.Group as={Col}>
+              <Form.Label>Cantidad del Envase</Form.Label>
+              <Form.Control
+                type="text"
+                name="cantidad_envase"
+                onChange={this.handleChange}
+                value={this.props.medicine.cantidadEnvase}
+              />
+            </Form.Group>
+          </Form.Group>
+          <Form.Label>Prescripción</Form.Label>
           <Form.Control
             type="text"
             name="prescripcion"
             onChange={this.handleChange}
             value={this.props.medicine.prescripcion}
           />
-
-          <Form.Control
-            type="text"
-            name="caducidad"
-            onChange={this.handleChange}
-            value={this.props.medicine.caducidad}
-          />
-
-          <Form.Control
-            type="text"
-            name="uds_totales"
-            onChange={this.handleChange}
-            value={this.props.medicine.envasesTotales}
-          />
-
+          <Form.Group as={Row}>
+            <Form.Group as={Col}>
+              <Form.Label>Fecha Caducidad</Form.Label>
+              <Form.Control
+                type="date"
+                name="caducidad"
+                onChange={this.handleChange}
+                value={this.props.medicine.caducidad}
+              />
+            </Form.Group>
+            <Form.Group as={Col}>
+              <Form.Label>Unidades Totales</Form.Label>
+              <Form.Control
+                type="text"
+                name="uds_totales"
+                onChange={this.handleChange}
+                value={this.props.medicine.envasesTotales}
+              />
+            </Form.Group>
+          </Form.Group>
+          <Form.Label>Fabricante</Form.Label>
           <Form.Control
             type="text"
             name="fabricante"
             onChange={this.handleChange}
             value={this.props.medicine.fabricante}
           />
-        </Col>
-        <Col>
+        </Form.Group>
+        <Form.Group as={Col} md="3">
           <img src={this.props.medicine.image} alt={this.props.medicine.name} />
+          <Form.Label>Imagen</Form.Label>
           <Form.Control
             type="text"
             name="image"
             onChange={this.handleChange}
             value={this.props.medicine.image}
           />
-
+          <Form.Label>Pacientes</Form.Label>
           <Form.Control
             as="textarea"
             type="text"
@@ -115,10 +130,10 @@ class EditMedicineForm extends React.Component {
             value={this.props.medicine.pacientes}
           />
 
-          <Button type="button" variant="danger" onClick={this.handleDelete}>
+          <Button type="button" onClick={this.handleDelete}>
             Borrar Medicina
           </Button>
-        </Col>
+        </Form.Group>
       </Form>
     );
   }

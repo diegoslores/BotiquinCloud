@@ -1,5 +1,5 @@
 import React from "react";
-import { Form, Col } from "react-bootstrap";
+import { Form, Col, Row } from "react-bootstrap";
 
 class AddMedicineForm extends React.Component {
   nameRef = React.createRef();
@@ -42,96 +42,88 @@ class AddMedicineForm extends React.Component {
   render() {
     return (
       <Form className="medicine-edit row" onSubmit={this.createMedicine}>
-        <Col sm="9">
-          <Form.Control
-            type="text"
-            ref={this.nameRef}
-            name="name"
-            placeholder="nombre"
-          />
-
-          <textarea
-            type="text"
-            ref={this.descRef}
-            name="desc"
-            placeholder="descripcion"
-          />
-
-          <select name="tipo" ref={this.tipoRef}>
+        <Form.Group as={Col} md="9">
+          <Form.Label>Nombre Medicamento</Form.Label>
+          <Form.Control type="text" ref={this.nameRef} name="name" />
+          <Form.Label>Descripción Medicamento</Form.Label>
+          <Form.Control type="text" ref={this.descRef} name="desc" />
+          <Form.Label>Tipo</Form.Label>
+          <Form.Control as="select" name="tipo" ref={this.tipoRef}>
             <option value="comprimido">Comprimido</option>
             <option value="pomada">Pomada</option>
             <option value="liquido">Liquido</option>
             <option value="otro">Otro</option>
-          </select>
-
+          </Form.Control>
+          <Form.Label>Composición</Form.Label>
           <Form.Control
             type="text"
             ref={this.composicionRef}
             name="composicion"
-            placeholder="composicion"
           />
-
-          <Form.Control
-            type="text"
-            ref={this.cantidadRef}
-            name="cantidad"
-            placeholder="cantidad restante"
-          />
-
-          <Form.Control
-            type="text"
-            ref={this.cantidadEnvaseRef}
-            name="cantidad_envase"
-            placeholder="cantidad del envase"
-          />
-
+          <Form.Group as={Row}>
+            <Form.Group as={Col}>
+              <Form.Label>Cantidad restante</Form.Label>
+              <Form.Control
+                type="text"
+                ref={this.cantidadRef}
+                name="cantidad"
+              />
+            </Form.Group>
+            <Form.Group as={Col}>
+              <Form.Label>Cantidad del Envase</Form.Label>
+              <Form.Control
+                type="text"
+                ref={this.cantidadEnvaseRef}
+                name="cantidad_envase"
+              />
+            </Form.Group>
+          </Form.Group>
+          <Form.Label>Prescripción</Form.Label>
           <Form.Control
             type="text"
             ref={this.prescripcionRef}
             name="prescripcion"
-            placeholder="prescripcion"
           />
-
-          <Form.Control
-            type="text"
-            ref={this.caducidadRef}
-            name="caducidad"
-            placeholder="caducidad"
-          />
-
-          <Form.Control
-            type="text"
-            ref={this.envasesTotalesRef}
-            name="udstotales"
-            placeholder="unidades totales"
-          />
-
+          <Form.Group as={Row}>
+            <Form.Group as={Col}>
+              <Form.Label>Fecha Caducidad</Form.Label>
+              <Form.Control
+                type="date"
+                ref={this.caducidadRef}
+                name="caducidad"
+              />
+            </Form.Group>
+            <Form.Group as={Col}>
+              <Form.Label>Unidades Totales</Form.Label>
+              <Form.Control
+                type="text"
+                ref={this.envasesTotalesRef}
+                name="udstotales"
+              />
+            </Form.Group>
+          </Form.Group>
+          <Form.Label>Fabricante</Form.Label>
           <Form.Control
             type="text"
             ref={this.fabricanteRef}
             name="fabricante"
-            placeholder="fabricante"
           />
-        </Col>
-        <Col>
+        </Form.Group>
+        <Form.Group as={Col} md="3">
+          <Form.Label>Imagen</Form.Label>
+          <Form.Control type="text" ref={this.imageRef} name="image" />
+          <Form.Label>Pacientes</Form.Label>
           <Form.Control
-            type="text"
-            ref={this.imageRef}
-            name="image"
-            placeholder="imagen"
-          />
-
-          <textarea
+            as="textarea"
             type="text"
             ref={this.pacientesRef}
             name="pacientes"
-            placeholder="pacientes"
           />
 
           <button className="btn btn-info" variant="danger" title="submit">
             Añadir Medicina
           </button>
-        </Col>
+        </Form.Group>
       </Form>
     );
   }
