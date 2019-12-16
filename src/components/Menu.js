@@ -1,5 +1,5 @@
 import React from "react";
-import { Button } from "react-bootstrap";
+import { Button, Row } from "react-bootstrap";
 import { navigate } from "@reach/router";
 
 import Medicine from "./Medicine";
@@ -11,25 +11,26 @@ class Menu extends React.Component {
   };
   render() {
     return (
-      <div className="Menu">
-        <h2>Menu</h2>
-
-        <Button variant="info" onClick={this.props.loadSampleMedicine}>
-          Carga Ejemplo
-        </Button>
-        <Button variant="info" onClick={this.goToNew}>
-          Nuevo
-        </Button>
-
-        <ul className="medicines">
-          {Object.keys(this.props.medicine).map(pillKey => (
-            <Medicine
-              key={pillKey}
-              index={pillKey}
-              medicineDetails={this.props.medicine[pillKey]}
-            />
-          ))}
-        </ul>
+      <div className="menu">
+        <Row>
+          <Button variant="info" onClick={this.props.loadSampleMedicine}>
+            Carga Ejemplo
+          </Button>
+          <a href="#nuevo">
+            <Button variant="info" onClick={this.goToNew}>
+              Nuevo
+            </Button>
+          </a>
+          <ul className="medicines">
+            {Object.keys(this.props.medicine).map(pillKey => (
+              <Medicine
+                key={pillKey}
+                index={pillKey}
+                medicineDetails={this.props.medicine[pillKey]}
+              />
+            ))}
+          </ul>
+        </Row>
       </div>
     );
   }

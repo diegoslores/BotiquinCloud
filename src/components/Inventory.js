@@ -1,11 +1,10 @@
 import React from "react";
-
 import EditMedicineForm from "./EditMedicineForm";
 
 class Inventory extends React.Component {
   render() {
     return (
-      <>
+      <div className="inventario">
         {Object.keys(this.props.medicine).map(pillKey => (
           <EditMedicineForm
             key={pillKey}
@@ -15,7 +14,7 @@ class Inventory extends React.Component {
             deleteMedicine={this.props.deleteMedicine}
           />
         ))}
-      </>
+      </div>
     );
   }
 }

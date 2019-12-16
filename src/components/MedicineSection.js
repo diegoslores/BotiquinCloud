@@ -8,7 +8,7 @@ import AddMedicineForm from "./AddMedicineForm";
 class MedicineSection extends React.Component {
   render() {
     return (
-      <main className="main">
+      <main className="main-medicine">
         <Row>
           <Col sm="2">
             <Menu

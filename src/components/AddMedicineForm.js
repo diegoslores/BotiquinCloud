@@ -42,6 +42,7 @@ class AddMedicineForm extends React.Component {
   render() {
     return (
       <Form className="medicine-edit row" onSubmit={this.createMedicine}>
+        <a id="nuevo" />
         <Col>
           <Form.Control
             type="text"

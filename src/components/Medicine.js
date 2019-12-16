@@ -17,10 +17,10 @@ class Medicine extends React.Component {
       pacientes,
       fabricante
     } = this.props.medicineDetails;
-    
+
     return (
       <li className="menu-medicine">
-        <a href={'#' + name}>
+        <a href={"#" + name}>
           <Button variant="info" className="medicine-name">
             {name}
           </Button>
