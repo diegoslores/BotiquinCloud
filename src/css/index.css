@@ -70,7 +70,7 @@ form.store-selector {
 /*Menu*/
 #root .menu {
   position: fixed;
-  width: 200px;
+  width: 15%;
   height: 80vh;
   padding: 20px;
 }
@@ -98,13 +98,6 @@ form.store-selector {
   padding-left: 1rem;
 }
 
-/*otros*/
-#root .head,
-#root .main-medicine {
-  margin-right: 0;
-  margin-left: 0;
-}
-
 #root .medicine-edit .col,
 #root .main-medicine .col-sm-10 {
   padding-left: 0;
@@ -116,18 +109,19 @@ form.store-selector {
 }
 
 #root .med textarea {
-  height: 41vh;
+  height: 40vh;
   resize: none;
+  width: 95%;
 }
 
 #root .new textarea {
-  height: 55vh;
+  height: 57vh;
   resize: none;
 }
 
 #root img {
-  width: 50%;
-  margin-left: 25%;
+  width: 60%;
+  margin-left: 20%;
 }
 
 #root .medicine-edit button {
@@ -136,6 +130,18 @@ form.store-selector {
 
 #root .img {
   width: 95%;
+}
+
+/*otros*/
+#root .head,
+#root .main-medicine {
+  margin-right: 0;
+  margin-left: 0;
+}
+
+#root .vhide {
+  height: 100px;
+  visibility: hidden;
 }
 
 @media screen and (max-width: 575px) {
