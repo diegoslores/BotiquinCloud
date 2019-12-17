@@ -1,6 +1,6 @@
 const pills = {
   medicine1: {
-    caducidad: "05/03/2021",
+    caducidad: "2021-03-05",
     cantidad: "250",
     cantidadEnvase: "500 ml",
     composicion: "10%. povidona yodada",
@@ -15,7 +15,7 @@ const pills = {
   },
 
   medicine2: {
-    caducidad: "19/12/2019",
+    caducidad: "2019-12-19",
     cantidad: "5",
     cantidadEnvase: "50 comprimidos",
     composicion: "500 mg",
@@ -29,11 +29,12 @@ const pills = {
     envasesTotales: "3"
   },
   medicine3: {
-    caducidad: "20/01/2022",
+    caducidad: "2022-01-22",
     cantidad: "50",
     cantidadEnvase: "60 g",
     composicion: "5 mg/g. Pentosano polisulfato sódico",
-    desc: "Pomada específica para las varices, los hematomas y los golpes. Mejoran la circulación.",
+    desc:
+      "Pomada específica para las varices, los hematomas y los golpes. Mejoran la circulación.",
     fabricante: "Lacer",
     image: "images/trombocid.jpg",
     name: "Thrombocid",
@@ -43,7 +44,7 @@ const pills = {
     envasesTotales: "1"
   },
   medicine4: {
-    caducidad: "12/04/2020",
+    caducidad: "2020-04-12",
     cantidad: "6",
     cantidadEnvase: "20",
     composicion: "",
@@ -57,7 +58,7 @@ const pills = {
     envasesTotales: "2"
   },
   medicine5: {
-    caducidad: "20/01/2021",
+    caducidad: "2021-01-20",
     cantidad: "18",
     cantidadEnvase: "30 comprimidos",
     composicion: "650 miligramos",
