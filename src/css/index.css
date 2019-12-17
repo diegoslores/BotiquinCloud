@@ -106,7 +106,6 @@ form.store-selector {
 
 #root .medicine-edit {
   height: 80vh;
-  margin-bottom: 2%;
 }
 
 #root .med textarea {
@@ -141,7 +140,7 @@ form.store-selector {
 }
 
 #root .vhide {
-  height: 100px;
+  height: 114px;
   visibility: hidden;
 }
 

@@ -21,8 +21,7 @@ class EditMedicineForm extends React.Component {
   render() {
     return (
       <>
-        <a id={this.props.medicine.name} />
-        <p className="vhide"></p>
+        <p id={this.props.medicine.name} className="vhide"></p>
         <Form className="medicine-edit row med">
           <Form.Group as={Col} md="9">
             <Form.Label>Nombre Medicamento</Form.Label>

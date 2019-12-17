@@ -11,7 +11,7 @@ class Menu extends React.Component {
           Carga Ejemplo
         </Button>
         <a href="#top">
-          <Button variant="info" onclick="scrollToTop()">
+          <Button variant="info" onClick="scrollToTop()">
             Nuevo
           </Button>
         </a>

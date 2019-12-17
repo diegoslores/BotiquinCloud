@@ -44,8 +44,6 @@ class App extends React.Component {
       uid: authData.user.uid,
       owner: store.owner || authData.user.uid
     });
-    console.log("authhhhhandler");
-    console.log(authData);
   };
 
   componentDidMount() {
