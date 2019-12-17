@@ -41,7 +41,7 @@ class AddMedicineForm extends React.Component {
 
   render() {
     return (
-      <Form className="medicine-edit row" onSubmit={this.createMedicine}>
+      <Form className="medicine-edit row new" onSubmit={this.createMedicine}>
         <Form.Group as={Col} md="9">
           <Form.Label>Nombre Medicamento</Form.Label>
           <Form.Control type="text" ref={this.nameRef} name="name" />
@@ -110,8 +110,15 @@ class AddMedicineForm extends React.Component {
           />
         </Form.Group>
         <Form.Group as={Col} md="3">
-          <Form.Label>Imagen</Form.Label>
-          <Form.Control type="text" ref={this.imageRef} name="image" />
+          <Form.Group as={Row}>
+            <Form.Label>Imagen</Form.Label>
+            <Form.Control
+              type="text"
+              className="img"
+              ref={this.imageRef}
+              name="image"
+            />
+          </Form.Group>
           <Form.Label>Pacientes</Form.Label>
           <Form.Control
             as="textarea"

@@ -20,7 +20,7 @@ class EditMedicineForm extends React.Component {
 
   render() {
     return (
-      <Form className="medicine-edit row">
+      <Form className="medicine-edit row med">
         <Form.Group as={Col} md="9">
           <Form.Label>Nombre Medicamento</Form.Label>
           <a id={this.props.medicine.name} />
@@ -114,13 +114,16 @@ class EditMedicineForm extends React.Component {
         </Form.Group>
         <Form.Group as={Col} md="3">
           <img src={this.props.medicine.image} alt={this.props.medicine.name} />
-          <Form.Label>Imagen</Form.Label>
-          <Form.Control
-            type="text"
-            name="image"
-            onChange={this.handleChange}
-            value={this.props.medicine.image}
-          />
+          <Form.Group as={Row}>
+            <Form.Label>Imagen</Form.Label>
+            <Form.Control
+              type="text"
+              name="image"
+              className="img"
+              onChange={this.handleChange}
+              value={this.props.medicine.image}
+            />
+          </Form.Group>
           <Form.Label>Pacientes</Form.Label>
           <Form.Control
             as="textarea"
@@ -130,7 +133,7 @@ class EditMedicineForm extends React.Component {
             value={this.props.medicine.pacientes}
           />
 
-          <Button type="button" onClick={this.handleDelete}>
+          <Button type="button" variant="info" onClick={this.handleDelete}>
             Borrar Medicina
           </Button>
         </Form.Group>

@@ -111,9 +111,31 @@ form.store-selector {
 }
 
 #root .medicine-edit {
-  border: solid;
   height: 80vh;
   margin-bottom: 2%;
+}
+
+#root .med textarea {
+  height: 41vh;
+  resize: none;
+}
+
+#root .new textarea {
+  height: 55vh;
+  resize: none;
+}
+
+#root img {
+  width: 50%;
+  margin-left: 25%;
+}
+
+#root .medicine-edit button {
+  margin-top: 3%;
+}
+
+#root .img {
+  width: 95%;
 }
 
 @media screen and (max-width: 575px) {
